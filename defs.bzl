@@ -50,18 +50,23 @@ jetify = rule(
     implementation = _jetify_impl,
 )
 
+
+# This is a sample implementation of `aar_import` with `jetify`
 def jetify_aar(name, aar, deps = [], exports = []):
-    if (name.find('androidx') >= 0):
+    if (name.find('androidx') >= 0 or
+        name.find('com_android_support') >= 0):
         native.aar_import(name = name, aar = aar, deps = deps, exports = exports)
     else:
         jetify_aar_name = "jetify_aar_%s" % name
         jetify(name = jetify_aar_name, srcs = [aar])
         native.aar_import(name = name, aar = ":%s" % jetify_aar_name, deps = deps, exports = exports)
 
+# This is a sample implementation of `java_import` with `jetify`
 def jetify_jar(name, jars, deps = [], runtime_deps = [], exports = [], tags = [], licenses = []):
     if (name.find('org_robolectric__shadows_supportv4') >= 0 or
         name.find('org_eclipse') >= 0 or
-        name.find('androidx') >= 0):
+        name.find('androidx') >= 0 or
+        name.find('com_android_support') >= 0):
         native.java_import(name = name, 
             jars = jars,
             deps = deps, 

@@ -1,0 +1,5 @@
+#IntelliJ
+.ijwb/
+
+#bazel build outputs
+bazel-*
