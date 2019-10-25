@@ -32,6 +32,7 @@ jetify = rule(
         "_jetifier_jars": attr.label_list(
             allow_files = True,
             default = [
+                Label("//thirdparty:jetifier-standalone.jar"),
                 Label("@org_ow2_asm__asm__6_0//file"),
                 Label("@org_ow2_asm__asm_commons__6_0//file"),
                 Label("@org_ow2_asm__asm_tree__6_0//file"),
