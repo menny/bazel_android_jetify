@@ -5,18 +5,18 @@ load('@bazel_tools//tools/build_defs/repo:http.bzl', 'http_file')
 
 # Repository rules macro to be run in the WORKSPACE file.
 def generate_workspace_rules():
-    # from com.android.tools.build.jetifier:jetifier-core:1.0.0-beta05
-    http_file(name = 'com_android_tools_build_jetifier__jetifier_core__1_0_0_beta05',
-        urls = ['https://maven.google.com/com/android/tools/build/jetifier/jetifier-core/1.0.0-beta05/jetifier-core-1.0.0-beta05.jar'],
-        downloaded_file_path = 'jetifier-core-1.0.0-beta05.jar',
-        sha256 = 'ab043be8ec1f77be1e512766fb394fd271bf09a5593cceb690e80b49de6f37ed',
+    # from com.android.tools.build.jetifier:jetifier-core:1.0.0-beta07
+    http_file(name = 'com_android_tools_build_jetifier__jetifier_core__1_0_0_beta07',
+        urls = ['https://maven.google.com/com/android/tools/build/jetifier/jetifier-core/1.0.0-beta07/jetifier-core-1.0.0-beta07.jar'],
+        downloaded_file_path = 'jetifier-core-1.0.0-beta07.jar',
+        sha256 = '69acd9b9b7a94823e9c2bcef2a5baacfb66d52da4cd9f51fca586b618a570c2a',
     )
 
-    # from com.android.tools.build.jetifier:jetifier-processor:1.0.0-beta05
-    http_file(name = 'com_android_tools_build_jetifier__jetifier_processor__1_0_0_beta05',
-        urls = ['https://maven.google.com/com/android/tools/build/jetifier/jetifier-processor/1.0.0-beta05/jetifier-processor-1.0.0-beta05.jar'],
-        downloaded_file_path = 'jetifier-processor-1.0.0-beta05.jar',
-        sha256 = '85168bedb9c934de0311aec77b5a4d770dbc7dc7147f14b40286702a0ecc57b9',
+    # from com.android.tools.build.jetifier:jetifier-processor:1.0.0-beta07
+    http_file(name = 'com_android_tools_build_jetifier__jetifier_processor__1_0_0_beta07',
+        urls = ['https://maven.google.com/com/android/tools/build/jetifier/jetifier-processor/1.0.0-beta07/jetifier-processor-1.0.0-beta07.jar'],
+        downloaded_file_path = 'jetifier-processor-1.0.0-beta07.jar',
+        sha256 = 'fc1ba057bd39179e40feaabe47a26ba3e227ffef317d8ed9d7a786a4020b1a33',
     )
 
     # from com.google.code.gson:gson:2.8.0
@@ -40,18 +40,18 @@ def generate_workspace_rules():
         sha256 = '1345f11ba606d15603d6740551a8c21947c0215640770ec67271fe78bea97cf5',
     )
 
-    # from org.jetbrains.kotlin:kotlin-stdlib-common:1.3.31
-    http_file(name = 'org_jetbrains_kotlin__kotlin_stdlib_common__1_3_31',
-        urls = ['https://repo.maven.apache.org/maven2/org/jetbrains/kotlin/kotlin-stdlib-common/1.3.31/kotlin-stdlib-common-1.3.31.jar'],
-        downloaded_file_path = 'kotlin-stdlib-common-1.3.31.jar',
-        sha256 = 'd6e9c54c1e6c4df21be9395de558665544c6bdc8f8076ea7518f089f82cd34fc',
+    # from org.jetbrains.kotlin:kotlin-stdlib-common:1.3.41
+    http_file(name = 'org_jetbrains_kotlin__kotlin_stdlib_common__1_3_41',
+        urls = ['https://repo.maven.apache.org/maven2/org/jetbrains/kotlin/kotlin-stdlib-common/1.3.41/kotlin-stdlib-common-1.3.41.jar'],
+        downloaded_file_path = 'kotlin-stdlib-common-1.3.41.jar',
+        sha256 = '6c91dea17d7dce5f0b550c3de3305767e5fb46247b6d1eb7eca0ca1fe18458de',
     )
 
-    # from org.jetbrains.kotlin:kotlin-stdlib:1.3.31
-    http_file(name = 'org_jetbrains_kotlin__kotlin_stdlib__1_3_31',
-        urls = ['https://repo.maven.apache.org/maven2/org/jetbrains/kotlin/kotlin-stdlib/1.3.31/kotlin-stdlib-1.3.31.jar'],
-        downloaded_file_path = 'kotlin-stdlib-1.3.31.jar',
-        sha256 = 'f38c84326543e66ed4895b20fb3ea0fca527fd5a040e1f49d0946ecf3d2b3b23',
+    # from org.jetbrains.kotlin:kotlin-stdlib:1.3.41
+    http_file(name = 'org_jetbrains_kotlin__kotlin_stdlib__1_3_41',
+        urls = ['https://repo.maven.apache.org/maven2/org/jetbrains/kotlin/kotlin-stdlib/1.3.41/kotlin-stdlib-1.3.41.jar'],
+        downloaded_file_path = 'kotlin-stdlib-1.3.41.jar',
+        sha256 = '6ea3d0921b26919b286f05cbdb906266666a36f9a7c096197114f7495708ffbc',
     )
 
     # from org.jetbrains:annotations:13.0
@@ -118,14 +118,14 @@ def kotlin_jar_support(name, deps, exports, runtime_deps, jar, java_import_impl,
 # You can provide your own implementation of java_import and aar_import. This can be used
 # in cases where you need to shade (or jar_jar or jetify) your jars.
 def generate_transitive_dependency_targets(java_import_impl=native.java_import, aar_import_impl=native.aar_import, kt_jvm_import=None, kt_jvm_library=None):
-    # from com.android.tools.build.jetifier:jetifier-core:1.0.0-beta05
+    # from com.android.tools.build.jetifier:jetifier-core:1.0.0-beta07
     native.alias(name = 'com_android_tools_build_jetifier__jetifier_core',
-        actual = ':com_android_tools_build_jetifier__jetifier_core__1_0_0_beta05',
+        actual = ':com_android_tools_build_jetifier__jetifier_core__1_0_0_beta07',
         visibility = ['//visibility:public'],
     )
 
-    # from com.android.tools.build.jetifier:jetifier-core:1.0.0-beta05
-    kotlin_jar_support(name = 'com_android_tools_build_jetifier__jetifier_core__1_0_0_beta05',
+    # from com.android.tools.build.jetifier:jetifier-core:1.0.0-beta07
+    kotlin_jar_support(name = 'com_android_tools_build_jetifier__jetifier_core__1_0_0_beta07',
         deps = [
             ':com_google_code_gson__gson',
             ':org_jetbrains_kotlin__kotlin_stdlib',
@@ -135,20 +135,20 @@ def generate_transitive_dependency_targets(java_import_impl=native.java_import, 
             ':org_jetbrains_kotlin__kotlin_stdlib',
         ],
         runtime_deps = [],
-        jar = '@com_android_tools_build_jetifier__jetifier_core__1_0_0_beta05//file',
+        jar = '@com_android_tools_build_jetifier__jetifier_core__1_0_0_beta07//file',
         java_import_impl = java_import_impl,
         kt_jvm_import = kt_jvm_import,
         kt_jvm_library = kt_jvm_library,
     )
 
-    # from com.android.tools.build.jetifier:jetifier-processor:1.0.0-beta05
+    # from com.android.tools.build.jetifier:jetifier-processor:1.0.0-beta07
     native.alias(name = 'com_android_tools_build_jetifier__jetifier_processor',
-        actual = ':com_android_tools_build_jetifier__jetifier_processor__1_0_0_beta05',
+        actual = ':com_android_tools_build_jetifier__jetifier_processor__1_0_0_beta07',
         visibility = ['//visibility:public'],
     )
 
-    # from com.android.tools.build.jetifier:jetifier-processor:1.0.0-beta05
-    kotlin_jar_support(name = 'com_android_tools_build_jetifier__jetifier_processor__1_0_0_beta05',
+    # from com.android.tools.build.jetifier:jetifier-processor:1.0.0-beta07
+    kotlin_jar_support(name = 'com_android_tools_build_jetifier__jetifier_processor__1_0_0_beta07',
         deps = [
             ':com_android_tools_build_jetifier__jetifier_core',
             ':org_jdom__jdom2',
@@ -166,7 +166,7 @@ def generate_transitive_dependency_targets(java_import_impl=native.java_import, 
             ':org_ow2_asm__asm_util',
         ],
         runtime_deps = [],
-        jar = '@com_android_tools_build_jetifier__jetifier_processor__1_0_0_beta05//file',
+        jar = '@com_android_tools_build_jetifier__jetifier_processor__1_0_0_beta07//file',
         java_import_impl = java_import_impl,
         kt_jvm_import = kt_jvm_import,
         kt_jvm_library = kt_jvm_library,
@@ -220,31 +220,31 @@ def generate_transitive_dependency_targets(java_import_impl=native.java_import, 
         runtime_deps = [],
     )
 
-    # from org.jetbrains.kotlin:kotlin-stdlib-common:1.3.31
+    # from org.jetbrains.kotlin:kotlin-stdlib-common:1.3.41
     native.alias(name = 'org_jetbrains_kotlin__kotlin_stdlib_common',
-        actual = ':org_jetbrains_kotlin__kotlin_stdlib_common__1_3_31',
+        actual = ':org_jetbrains_kotlin__kotlin_stdlib_common__1_3_41',
         visibility = ['//visibility:public'],
     )
 
-    # from org.jetbrains.kotlin:kotlin-stdlib-common:1.3.31
-    kotlin_jar_support(name = 'org_jetbrains_kotlin__kotlin_stdlib_common__1_3_31',
+    # from org.jetbrains.kotlin:kotlin-stdlib-common:1.3.41
+    kotlin_jar_support(name = 'org_jetbrains_kotlin__kotlin_stdlib_common__1_3_41',
         deps = [],
         exports = [],
         runtime_deps = [],
-        jar = '@org_jetbrains_kotlin__kotlin_stdlib_common__1_3_31//file',
+        jar = '@org_jetbrains_kotlin__kotlin_stdlib_common__1_3_41//file',
         java_import_impl = java_import_impl,
         kt_jvm_import = kt_jvm_import,
         kt_jvm_library = kt_jvm_library,
     )
 
-    # from org.jetbrains.kotlin:kotlin-stdlib:1.3.31
+    # from org.jetbrains.kotlin:kotlin-stdlib:1.3.41
     native.alias(name = 'org_jetbrains_kotlin__kotlin_stdlib',
-        actual = ':org_jetbrains_kotlin__kotlin_stdlib__1_3_31',
+        actual = ':org_jetbrains_kotlin__kotlin_stdlib__1_3_41',
         visibility = ['//visibility:public'],
     )
 
-    # from org.jetbrains.kotlin:kotlin-stdlib:1.3.31
-    kotlin_jar_support(name = 'org_jetbrains_kotlin__kotlin_stdlib__1_3_31',
+    # from org.jetbrains.kotlin:kotlin-stdlib:1.3.41
+    kotlin_jar_support(name = 'org_jetbrains_kotlin__kotlin_stdlib__1_3_41',
         deps = [
             ':org_jetbrains__annotations',
             ':org_jetbrains_kotlin__kotlin_stdlib_common',
@@ -254,7 +254,7 @@ def generate_transitive_dependency_targets(java_import_impl=native.java_import, 
             ':org_jetbrains_kotlin__kotlin_stdlib_common',
         ],
         runtime_deps = [],
-        jar = '@org_jetbrains_kotlin__kotlin_stdlib__1_3_31//file',
+        jar = '@org_jetbrains_kotlin__kotlin_stdlib__1_3_41//file',
         java_import_impl = java_import_impl,
         kt_jvm_import = kt_jvm_import,
         kt_jvm_library = kt_jvm_library,
