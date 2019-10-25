@@ -1,4 +1,5 @@
 # Idea and standalone.jar taken from https://github.com/bazelbuild/tools_android/pull/5/commits
+# latest binary taken from https://dl.google.com/dl/android/studio/jetifier-zips/1.0.0-beta07/jetifier-standalone.zip
 
 exports_files([
     "jetifier-standalone.jar",
